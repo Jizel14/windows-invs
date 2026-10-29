@@ -19,3 +19,7 @@ net localgroup administrateurs
 Get-Content "$env:APPDATA\AnyDesk\connection_trace.txt" -Tail 40
 Get-ChildItem C:\ProgramData\AnyDesk -ErrorAction SilentlyContinue
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*,HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match 'anydesk|teamviewer|rustdesk|screenconnect|splashtop|vnc|ammyy|supremo|remote|logmein|chrome remote' } | Select-Object DisplayName,InstallDate
+
+Get-MpComputerStatus | Select-Object AntivirusEnabled,RealTimeProtectionEnabled,AntivirusSignatureLastUpdated
+Get-MpThreatDetection | Select-Object InitialDetectionTime,ThreatID,Resources | Format-List
+Get-WinEvent -FilterHashtable @{LogName='System';Id=7045} -MaxEvents 20 | Format-List TimeCreated,Message
