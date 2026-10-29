@@ -5,3 +5,5 @@ Get-FileHash $f -Algorithm SHA256
 Get-Item $f | Select CreationTime, LastWriteTime, Length
 (Get-Item $f).VersionInfo | fl CompanyName, ProductName, FileVersion
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | ? DisplayName -like "*Logi*" | Select DisplayName, InstallDate
+
+$f = "C:\Program Files\LogiDownloadAssistant\bin\logi_download_assistant.exe"
