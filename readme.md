@@ -23,3 +23,6 @@ Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*,HKL
 Get-MpComputerStatus | Select-Object AntivirusEnabled,RealTimeProtectionEnabled,AntivirusSignatureLastUpdated
 Get-MpThreatDetection | Select-Object InitialDetectionTime,ThreatID,Resources | Format-List
 Get-WinEvent -FilterHashtable @{LogName='System';Id=7045} -MaxEvents 20 | Format-List TimeCreated,Message
+
+
+   Get-FileHash C:\Users\info\Downloads\nova-companion-6.5.6-setup.exe -Algorithm SHA256
